@@ -6,7 +6,8 @@ brew install awscli
 - refer: https://aws.amazon.com/cli/
 ## aws_completer installation
 **zshrc**
-```
+```shell
+which aws_completer
 export PATH=/usr/local/bin:$PATH
 source ~/.bash_profile
 autoload bashcompinit && bashcompinit
@@ -45,8 +46,8 @@ $ tree
 AWS prompts you to enter your Access Key ID and Secret Access Key and stores them in ~/.aws/credentials:
 ```
 [default]
-aws_access_key_id=AKIAIOSFODNN7EXAMPLE
-aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+aws_access_key_id=AKIAIOSFODNN7EXAdPLE
+aws_secret_access_key=wJalrXUtnFEMI/K7sdENG/bPxRfiCYEXAMPLEKEY
 ```
 It also stores the other settings you entered in ~/.aws/config:
 ```
