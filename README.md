@@ -66,12 +66,12 @@ aws ec2 stop-intances --instance-ids "instanceid1" "instanceid2"
 aws ec2 run-instances --image-id ami-b6b62b8f --security-group-ids sg-xxxxxxxx --key-name mykey --block-device-mappings "[{\"DeviceName\": \"/dev/sdh\",\"Ebs\":{\"VolumeSize\":100}}]" --instance-type t2.medium --count 1 --subnet-id subnet-e8330c9c --associate-public-ip-address
 (Note: 若不指定subnet-id则会在默认vpc中去选，此时若指定了非默认vpc的安全组会出现请求错误。如无特殊要求，建议安全组和子网都不指定，就不会出现这种问题。)
 ```
-- **查看region与AZ**
+- **check region & AZ**
  ```
 aws ec2 describe-region
 aws ec2 describe-availability-zones --region region-name
 ```
-- **查看实例元数据和用户数据**
+- **check metadata & userdata**
 ```
 curl http://169.254.169.254/latest/meta-data／
 curl http://169.254.169.254/latest/user-data／
