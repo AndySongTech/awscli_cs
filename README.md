@@ -5,14 +5,14 @@ brew install awscli
 ```
 - refer: https://aws.amazon.com/cli/
 ## aws_completer installation
-- **zshrc**
+**zshrc**
 ```
 export PATH=/usr/local/bin:$PATH
 source ~/.bash_profile
 autoload bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 ```
-- Add the command to ~/.zshrc to run it each time you open a new shell.
+Add the command to ~/.zshrc to run it each time you open a new shell.
 ```
 cat <<EOF >>~/.zshrc
 complete -C '/usr/local/bin/aws_completer' aws
