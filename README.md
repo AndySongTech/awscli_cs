@@ -79,6 +79,7 @@ curl http://169.254.169.254/latest/user-data／
 - **check ami & key pair**
 ```
 aws ec2 describe-images
+aws ec2 describe-key-pairs
 aws ec2 create-key-pair --key-name mykeyname
 ```
 - **security group**
