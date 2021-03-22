@@ -61,6 +61,8 @@ output=json
 ```
 aws ec2 describe-instances
 aws ec2 describe-instances --instance-ids "instanceid1" "instanceid2"
+aws resourcegroupstaggingapi get-resources
+aws configservice get-discovered-resource-counts --resource-types "AWS::EC2::Instance" --region us-west-2
 aws ec2 start-instances --instance-ids "instanceid1" "instanceid2"
 aws ec2 stop-intances --instance-ids "instanceid1" "instanceid2"
 aws ec2 run-instances --image-id ami-b6b62b8f --security-group-ids sg-xxxxxxxx --key-name mykey --block-device-mappings "[{\"DeviceName\": \"/dev/sdh\",\"Ebs\":{\"VolumeSize\":100}}]" --instance-type t2.medium --count 1 --subnet-id subnet-e8330c9c --associate-public-ip-address
