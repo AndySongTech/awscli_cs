@@ -9,6 +9,7 @@ xvdb    202:16   0   2G  0 disk
 ```
 - Format the volume and mount to instance
 ```shell
+[centos@ip-172-31-6-60 ~]$ sudo su     # switch to root account
 [root@ip-172-31-6-60 centos]# mkfs -t xfs /dev/xvdb      # format the volume to xfs type
 meta-data=/dev/xvdb              isize=512    agcount=4, agsize=131072 blks
          =                       sectsz=512   attr=2, projid32bit=1
