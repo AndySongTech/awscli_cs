@@ -39,5 +39,22 @@ cat <<EOF >>/etc/fstab
 /dev/xvdb /data xfs defaults 0 0
 EOF
 ```
+## Initial EFS
+EFS using NFS and only support Linux system, do not support Windows.
+- Install the amazon-efs-utils package on all the instances
+```shell
+sudo yum install -y amazon-efs-utils
+```
+> Refer: https://docs.aws.amazon.com/efs/latest/ug/installing-amazon-efs-utils.html
+- Config EFS security group to allow ingress/inbound from instance secuity group
+```shell
+Add EFS security group, type is NFS, source is from instance security group
+```
+- Attach the EFS file system to instance
+```shell
+mkdir /efs
+sudo mount -t efs -o tls fs-12345678:/ /efs
+```
+> Refer: https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-helper.html
 
 
