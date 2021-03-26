@@ -57,6 +57,9 @@ output=json
 ```
 ## cli reference
 - refer: https://docs.aws.amazon.com/cli/latest/reference/#available-services
+```shell
+aws help   # list all the available commands 
+```
 ### ec2
 ```
 aws ec2 describe-instances
@@ -105,8 +108,11 @@ aws autoscaling delete-auto-scaling-group --auto-scaling-group-name groupname
 ### s3
 ```
 aws s3 ls    # list all buckets under current account
+aws s3 ls help  # check help
 aws s3 ls s3://bucket   # list objects of specifiy bucket  
 aws s3 ls s3://bucket/prefix  # list subfolder objects
+aws s3 ls s3://mybucket --recursive   # recursively listing all prefixes and objects
+aws s3 ls s3://mybucket --recursive --human-readable --summarize
 aws s3 mb s3://andysongbucket  # create a bucket
 aws s3 rb s3://andysongbucket   # remove a bucket
 aws s3 cp /to/local/path s3://bucket/prefix   # copy local file to s3
