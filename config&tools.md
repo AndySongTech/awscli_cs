@@ -57,4 +57,12 @@ sudo mount -t efs -o tls fs-12345678:/ /efs
 ```
 > Refer: https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-helper.html
 
+## Tools
+### AWS Policy Generator
+The AWS Policy Generator is a tool that enables you to create policies that control access to Amazon Web Services (AWS) products and resources.         
+- Link: https://awspolicygen.s3.amazonaws.com/policygen.html
+### IAM Policy Simulator
+Testing your IAM policies with the IAM policy simulator
+- Refer: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html
+- Portal: https://policysim.aws.amazon.com
 
