@@ -104,12 +104,14 @@ aws autoscaling delete-auto-scaling-group --auto-scaling-group-name groupname
 ```
 ### s3
 ```
-aws s3 ls
-aws s3 ls s3://bucket
-aws s3 ls s3://bucket/prefix
-aws s3 cp /to/local/path s3://bucket/prefix
-aws s3 cp s3://bucket/prefix /to/local/path
-aws s3 cp s3://bucket1/prefix1 s3://bucket2/prefix2
+aws s3 ls    # list all buckets under current account
+aws s3 ls s3://bucket   # list objects of specifiy bucket  
+aws s3 ls s3://bucket/prefix  # list subfolder objects
+aws s3 mb s3://andysongbucket  # create a bucket
+aws s3 rb s3://andysongbucket   # remove a bucket
+aws s3 cp /to/local/path s3://bucket/prefix   # copy local file to s3
+aws s3 cp s3://bucket/prefix /to/local/path   # copy s3 file to local 
+aws s3 cp s3://bucket1/prefix1 s3://bucket2/prefix2   # copy s3 file to another s3
 aws sync [--delete] /to/local/dir s3://bucket/prefixdir
 aws sync [--delete] s3://bucket/prefixdir /to/local/dir
 aws sync [--delete] s3://bucket1/prefixdir1 s3://bucket2/prefixdir2
