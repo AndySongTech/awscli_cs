@@ -61,7 +61,7 @@ output=json
 aws help   # list all the available commands 
 ```
 ### ec2
-```awscli
+```shell
 aws ec2 describe-instances   # output all ec2 instances
 aws ec2 describe-instances >~/Downloads/instance.txt  # output the EC2 instances to a file, defualt format is json. Convert to csv by https://json-csv.com/ 
 aws ec2 describe-instances --instance-ids "instanceid1" "instanceid2"  # output the specified instance
@@ -74,8 +74,10 @@ aws ec2 run-instances --image-id ami-b6b62b8f --security-group-ids sg-xxxxxxxx -
 (Note: 若不指定subnet-id则会在默认vpc中去选，此时若指定了非默认vpc的安全组会出现请求错误。如无特殊要求，建议安全组和子网都不指定，就不会出现这种问题。)
 ```
 - **check region & AZ**
- ```
-aws ec2 describe-regions   # list all the regions supported ec2 service
+ ```shell
+aws resource-name describe-regions  # list all the regions that supported the specified service, like ec2, rds, workspaces, cloudwatch, s3...
+aws ec2 describe-regions   # list all the regions that supported ec2 service
+aws s3 describe-regions
 aws ec2 describe-availability-zones --region region-name  # list if ec2 service is available in specifed region AZ.
 ```
 - **check metadata & userdata**
