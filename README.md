@@ -86,19 +86,19 @@ curl http://169.254.169.254/latest/meta-data／
 curl http://169.254.169.254/latest/user-data／
 ```
 - **check ami & key pair**
-```
+```shell
 aws ec2 describe-images
 aws ec2 describe-key-pairs
 aws ec2 create-key-pair --key-name mykeyname
 ```
 - **security group**
-```
+```shell
 aws ec2 create-security-group --group-name mygroupname --description mydescription --vpc-id vpc-id (若不指定vpc，则在默认vpc中创建安全组)
 aws ec2 authorize-security-group-ingress --group-id sg-xxxxyyyy --protocol tcp --port 22 --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress --group-id sg-xxxxyyyy --protocol tcp --port 9999 --source-group sg-xxxxxxxx
 ```
 ### rds
-```
+```shell
 aws rds describe-db-instances # output the rds info 
 aws rds describe-db-instances --region us-west-2  # output the rds in specifed region
 aws rds describe-db-instances --region us-west-2 --profile default   # output the rds in specifed region and profile 
@@ -107,7 +107,7 @@ aws rds describe-reserved-db-instances --region us-west-2   # output the reserve
 aws rds describe-reserved-db-instances --region us-west-2 --profile default   # output the reserved rds in specifed region and profile 
 ```
 ### autoscaling
-```
+```shell
 aws autoscaling describe-auto-scaling-groups   # output the autoscaling groups
 aws autoscaling describe-auto-scaling-instances   # output the autoscaling instances
 aws autoscaling describe-auto-scaling-instances --instance-ids [instance-id-1 instance-id-2 ...]  # output specified instance
@@ -119,7 +119,7 @@ aws autoscaling suspend-process --auto-scaling-group-name mygroupname --scaling-
 aws autoscaling delete-auto-scaling-group --auto-scaling-group-name groupname
 ```
 ### s3
-```
+```shell
 aws s3 ls    # list all buckets under current account
 aws s3 ls help  # check help
 aws s3 ls s3://bucket   # list objects of specifiy bucket  
@@ -137,7 +137,7 @@ aws sync [--delete] s3://bucket1/prefixdir1 s3://bucket2/prefixdir2
 ```
 
 ### iam
-```
+```shell
 aws iam create-role MY-ROLE-NAME --assum-role-policy-document file://path/to/trustpolicy.json
 aws iam put-role-policy --role-name MY-ROLE-NAME --policy-name MY-PERM-POLICY --policy-document file://path/to/permissionpolicy.json
 aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
