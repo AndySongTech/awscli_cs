@@ -62,8 +62,10 @@ aws help   # list all the available commands
 ```
 ### ec2
 ```
-aws ec2 describe-instances
-aws ec2 describe-instances --instance-ids "instanceid1" "instanceid2"
+aws ec2 describe-instances   # output all ec2 instances
+aws ec2 describe-instances >~/Downloads/instance.txt  # output the EC2 instances to a file, defualt format is json. Convert to csv by https://json-csv.com/ 
+aws ec2 describe-instances --instance-ids "instanceid1" "instanceid2"  # output the specified instance
+aws ec2 describe-instances --region us-west-2 --profile default # output the instance in specfied region
 aws resourcegroupstaggingapi get-resources
 aws configservice get-discovered-resource-counts --resource-types "AWS::EC2::Instance" --region us-west-2
 aws ec2 start-instances --instance-ids "instanceid1" "instanceid2"
@@ -73,8 +75,8 @@ aws ec2 run-instances --image-id ami-b6b62b8f --security-group-ids sg-xxxxxxxx -
 ```
 - **check region & AZ**
  ```
-aws ec2 describe-region
-aws ec2 describe-availability-zones --region region-name
+aws ec2 describe-regions   # list all the regions supported ec2 service
+aws ec2 describe-availability-zones --region region-name  # list if ec2 service is available in specifed region AZ.
 ```
 - **check metadata & userdata**
 ```
@@ -93,13 +95,22 @@ aws ec2 create-security-group --group-name mygroupname --description mydescripti
 aws ec2 authorize-security-group-ingress --group-id sg-xxxxyyyy --protocol tcp --port 22 --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress --group-id sg-xxxxyyyy --protocol tcp --port 9999 --source-group sg-xxxxxxxx
 ```
+### rds
+```
+aws rds describe-db-instances # output the rds info 
+aws rds describe-db-instances --region us-west-2  # output the rds in specifed region
+aws rds describe-db-instances --region us-west-2 --profile default   # output the rds in specifed region and profile 
+aws rds describe-reserved-db-instances  # output reserved rds info
+aws rds describe-reserved-db-instances --region us-west-2   # output the reserved rds in specifed region  
+aws rds describe-reserved-db-instances --region us-west-2 --profile default   # output the reserved rds in specifed region and profile 
+```
 ### autoscaling
 ```
-aws autoscaling describe-auto-scaling-groups
-aws autoscaling describe-auto-scaling-instances
-aws autoscaling describe-auto-scaling-instances --instance-ids [instance-id-1 instance-id-2 ...]
-aws autoscaling detach-instances --auto-scaling-group-name myasgroup --instance-ids instanceid1 instanceid2 [--should-decrement-desired-capacity|--no-should-decrement-desired-capacity]
-aws autoscaling detach-instances --auto-scaling-group-name --instance-ids
+aws autoscaling describe-auto-scaling-groups   # output the autoscaling groups
+aws autoscaling describe-auto-scaling-instances   # output the autoscaling instances
+aws autoscaling describe-auto-scaling-instances --instance-ids [instance-id-1 instance-id-2 ...]  # output specified instance
+aws autoscaling detach-instances --auto-scaling-group-name --instance-ids  # remove one instance from autoscaling group
+aws autoscaling detach-instances --auto-scaling-group-name myasgroup --instance-ids instanceid1 instanceid2 [--should-decrement-desired-capacity|--no-should-decrement-desired-capacity]   # remove instance from autoscaling group
 挂起AS流程
 aws autoscaling suspend-process --auto-scaling-group-name mygroupname --scaling-processes AZRebalance|AlarmNotification|...
 删除AS组
