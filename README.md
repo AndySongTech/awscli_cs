@@ -119,7 +119,7 @@ aws autoscaling suspend-process --auto-scaling-group-name mygroupname --scaling-
 aws autoscaling delete-auto-scaling-group --auto-scaling-group-name groupname
 ```
 ### s3
-```shell
+```
 aws s3 ls    # list all buckets under current account
 aws s3 ls help  # check help
 aws s3 ls s3://bucket   # list objects of specifiy bucket  
