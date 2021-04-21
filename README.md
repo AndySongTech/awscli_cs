@@ -61,7 +61,7 @@ output=json
 aws help   # list all the available commands 
 ```
 ### ec2
-```
+```awscli
 aws ec2 describe-instances   # output all ec2 instances
 aws ec2 describe-instances >~/Downloads/instance.txt  # output the EC2 instances to a file, defualt format is json. Convert to csv by https://json-csv.com/ 
 aws ec2 describe-instances --instance-ids "instanceid1" "instanceid2"  # output the specified instance
