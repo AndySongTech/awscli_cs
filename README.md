@@ -23,8 +23,8 @@ EOF
 ## aws configure 
 ```shell
 $ aws configure
-AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS Access Key ID: AKIAxxxFODNN7EXAMPLE
+AWS Secret Access Key: wJalrXUtnFExxxI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
 Default output format [None]: json
 
