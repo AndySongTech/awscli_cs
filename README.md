@@ -138,6 +138,7 @@ aws sync [--delete] s3://bucket1/prefixdir1 s3://bucket2/prefixdir2
 
 ### iam
 ```shell
+aws iam list-users  # list all users
 aws iam create-role MY-ROLE-NAME --assum-role-policy-document file://path/to/trustpolicy.json
 aws iam put-role-policy --role-name MY-ROLE-NAME --policy-name MY-PERM-POLICY --policy-document file://path/to/permissionpolicy.json
 aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
