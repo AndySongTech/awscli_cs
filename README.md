@@ -55,6 +55,46 @@ It also stores the other settings you entered in ~/.aws/config:
 region=us-west-2
 output=json
 ```
+## manage aws cli for multiple accounts
+```shell
+$ aws configure --profile aws-cn
+AWS Access Key ID: AKIAxxx----NN7EXAMPLE
+AWS Secret Access Key: wJalrXUtnFExxxI/K7M------RfiCYEXAMPLANDY
+Default region name [None]: cn-northwest-1
+Default output format [None]: json
+
+# check the new credentials/config 
+$ cat ~/.aws/credentials
+[default]
+aws_access_key_id=YOUR_ACCESS_KEY
+aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
+
+[cn-aws]
+aws_access_key_id=USER_2_ACCESS_KEY
+aws_secret_access_key=USER_2_SECRET_ACCESS_KEY
+
+$ cat ~/.aws/config
+[default]
+region=YOUR_REGION
+output=json
+
+[profile cn-aws]
+region=USER_2_REGION
+output=json
+
+# When you have multiple profiles configured, every time you run a command in the CLI, you have to use the “--profile” flag to specify which profile to use. However, it is really annoying to put this flag with every command. You can easily escape this boring task by exporting an environment variable in your current terminal.
+$ aws s3 ls --profile cn-aws    # access cn-aws account by --profile cn-aws
+
+# if you don't want type --profile every time, try below export
+$ export AWS_PROFILE=cn-aws
+
+# when you access default profile
+$ aws s3 ls --profile default 
+
+# if you want to change the profile to default, check below export
+$ export AWS_PROFILE=default
+
+```
 ## cli reference
 - refer: https://docs.aws.amazon.com/cli/latest/reference/#available-services
 ```shell
