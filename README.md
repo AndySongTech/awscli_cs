@@ -203,4 +203,11 @@ aws iam put-role-policy --role-name MY-ROLE-NAME --policy-name MY-PERM-POLICY --
 aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
 aws iam add-role-to-instance-profile --instance-profile-name MY-INSTANCE-PROFILE --role-name MY-ROLE-NAME
 ```
-
+### ecr
+```
+aws ecr list-images --repository-name kube-apiserver   # check repo image
+docker images  # list all docker images
+docker tag hello-world:latest aws_account_id.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest # tag the local image to aws ecr
+docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest  # upload the tag the image to aws ecr
+```
+- refer: https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html
