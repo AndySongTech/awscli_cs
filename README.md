@@ -203,6 +203,7 @@ aws iam create-role MY-ROLE-NAME --assum-role-policy-document file://path/to/tru
 aws iam put-role-policy --role-name MY-ROLE-NAME --policy-name MY-PERM-POLICY --policy-document file://path/to/permissionpolicy.json
 aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
 aws iam add-role-to-instance-profile --instance-profile-name MY-INSTANCE-PROFILE --role-name MY-ROLE-NAME
+aws iam list-roles |jq '[.Roles[]|{RoleName: .RoleName}]'| grep RoleName |tr -d '"":' # get roles name list from json output
 ```
 ### ecr
 ```
