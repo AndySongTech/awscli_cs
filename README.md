@@ -204,6 +204,7 @@ aws iam put-role-policy --role-name MY-ROLE-NAME --policy-name MY-PERM-POLICY --
 aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
 aws iam add-role-to-instance-profile --instance-profile-name MY-INSTANCE-PROFILE --role-name MY-ROLE-NAME
 aws iam list-roles |jq '[.Roles[]|{RoleName: .RoleName}]'| grep RoleName |tr -d '"":' # get roles name list from json output
+aws iam list-roles |jq '.Roles[]|{RoleName: .RoleName}'| grep RoleName |tr -d '"":' # the same result without []
 ```
 ### ecr
 ```
@@ -272,7 +273,11 @@ Delete an alarm or alarms (you can delete up to 100 at a time)
 ```
 aws cloudwatch delete-alarms --alarm-names (alarmnames)
 ```
- 
+Set a alarm state(Temporarily sets the state of an alarm for testing purposes)
+```
+aws cloudwatch set-alarm-state --alarm-name "RebootEC2OnHighCPU" --state-value ALARM --state-reason "Testing"
+```
+Refer: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/set-alarm-state.html  
 ### Cognito
 List user pool IDs and names
 ```
