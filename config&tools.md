@@ -60,7 +60,43 @@ sudo mount -t efs -o tls fs-12345678:/ /efs
 ## Tools
 ### AWS Policy Generator
 The AWS Policy Generator is a tool that enables you to create policies that control access to Amazon Web Services (AWS) products and resources.         
-- Link: https://awspolicygen.s3.amazonaws.com/policygen.html
+- Link: https://awspolicygen.s3.amazonaws.com/policygen.html      
+- Note: when you use aws-cn arn in the Policy Generator tool, please change the **aws-cn** to **aws**, if not the tool will get error and the Generate Policy button is gray. You can generate the policy first then change it back to aws-cn manually. 
+```json
+{
+  "Id": "Policy1642062401473",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1642062399939",
+      "Action": [
+        "sqs:SendMessage"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws-cn:sqs:cn-northwest-1:056301980852:Demo-S3-Notification",
+      "Principal": "*"
+    }
+  ]
+}
+
+# The default policy, it is only allow owner(root) to access SQS resource.  
+{
+  "Version": "2008-10-17",
+  "Id": "__default_policy_ID",
+  "Statement": [
+    {
+      "Sid": "__owner_statement",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws-cn:iam::056301980852:root"
+      },
+      "Action": "SQS:*",
+      "Resource": "arn:aws-cn:sqs:cn-northwest-1:056301980852:Demo-S3-Notification"
+    }
+  ]
+}
+```
+
 ### IAM Policy Simulator
 Testing your IAM policies with the IAM policy simulator
 - Refer: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html
