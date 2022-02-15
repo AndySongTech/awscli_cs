@@ -186,14 +186,17 @@ aws s3 ls s3://bucket   # list objects of specifiy bucket
 aws s3 ls s3://bucket/prefix  # list subfolder objects
 aws s3 ls s3://mybucket --recursive   # recursively listing all prefixes and objects
 aws s3 ls s3://mybucket --recursive --human-readable --summarize
+aws s3 ls s3://andy-terraform-bucket/terraform --recursive  # list prefix files
 aws s3 mb s3://andysongbucket  # create a bucket
 aws s3 rb s3://andysongbucket   # remove a bucket
 aws s3 cp /to/local/path s3://bucket/prefix   # copy local file to s3
 aws s3 cp s3://bucket/prefix /to/local/path   # copy s3 file to local 
 aws s3 cp s3://bucket1/prefix1 s3://bucket2/prefix2   # copy s3 file to another s3
+aws s3 cp s3://andy-terraform-bucket/terraform/training/terraform.tfstate .  # copy s3 file to local current dir
 aws sync [--delete] /to/local/dir s3://bucket/prefixdir
 aws sync [--delete] s3://bucket/prefixdir /to/local/dir
 aws sync [--delete] s3://bucket1/prefixdir1 s3://bucket2/prefixdir2
+
 ```
 
 ### iam
