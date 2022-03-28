@@ -166,6 +166,7 @@ aws rds describe-reserved-db-instances  # output reserved rds info
 aws rds describe-reserved-db-instances --region us-west-2   # output the reserved rds in specifed region  
 aws rds describe-reserved-db-instances --region us-west-2 --profile default   # output the reserved rds in specifed region and profile 
 aws rds describe-db-instances | jq -r '.DBInstances[]|{DBInstanceIdentifier}'|grep DBInstanceIdentifier |cut -d: -f 2|tr -d '"" '
+aws rds describe-db-instances | jq -r '.DBInstances[]|.DBInstanceIdentifier' # the same function like above command
 ```
 ### autoscaling
 ```shell
