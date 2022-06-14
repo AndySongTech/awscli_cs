@@ -120,6 +120,16 @@ $ export AWS_PROFILE=default
 ```shell
 aws help   # list all the available commands 
 ```
+### key take-aways
+```
+aws sts get-caller-identity --query Account --output text  # check current aws accout id
+aws sts get-caller-identity  # check account info 
+{
+    "UserId": "AROAV7V4EKF7NTSNGU6AW:andy@autonomic.ai",
+    "Account": "411637666174",
+    "Arn": "arn:aws-cn:sts::411637666174:assumed-role/jedi-infra-engineers-cn.samlrole/andy@autonomic.ai"
+}
+```
 ### ec2
 ```shell
 aws ec2 describe-instances   # output all ec2 instances
@@ -211,6 +221,15 @@ aws iam create-instance-profile --instance-profile-name MY-INSTANCE-PROFILE
 aws iam add-role-to-instance-profile --instance-profile-name MY-INSTANCE-PROFILE --role-name MY-ROLE-NAME
 aws iam list-roles |jq '[.Roles[]|{RoleName: .RoleName}]'| grep RoleName |tr -d '"":' # get roles name list from json output
 aws iam list-roles |jq '.Roles[]|{RoleName: .RoleName}'| grep RoleName |tr -d '"":' # the same result without []
+aws iam list-server-certificates  # list server certificates
+aws iam get-server-certificate --server-certificate-name ExampleCertificate
+aws iam delete-server-certificate --server-certificate-name ExampleCertificate   # delete server certificate
+aws iam upload-server-certificate --server-certificate-name ExampleCertificate
+                                    --certificate-body file://Certificate.pem
+                                    --certificate-chain file://CertificateChain.pem
+                                    --private-key file://PrivateKey.pem
+                                    --tags '{"Key": "ExampleKey", "Value": "ExampleValue"}'  # upload certificate
+Managing server certificates in IAM: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html                           
 ```
 ### ecr
 ```
