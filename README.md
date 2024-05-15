@@ -209,6 +209,8 @@ aws s3 cp s3://andy-terraform-bucket/terraform/training/terraform.tfstate .  # c
 aws sync [--delete] /to/local/dir s3://bucket/prefixdir
 aws sync [--delete] s3://bucket/prefixdir /to/local/dir
 aws sync [--delete] s3://bucket1/prefixdir1 s3://bucket2/prefixdir2
+aws s3 rm s3://my-s3-bucket/example.txt  # remove a file from s3 bucket
+
 
 ```
 
